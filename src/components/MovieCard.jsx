@@ -1,6 +1,9 @@
-import React from "react";
-
-const MovieCard = ({ movie: { imdbID, Year, Poster, Title, Type } }) => {
+const MovieCard = ({
+  movie: { imdbID, Year, Poster, Title, Type },
+  onAddFavorite,
+  onRemoveFavorite,
+  isFavorite,
+}) => {
   return (
     <div className="movie" key={imdbID}>
       <div>
@@ -17,6 +20,11 @@ const MovieCard = ({ movie: { imdbID, Year, Poster, Title, Type } }) => {
       <div>
         <span>{Type}</span>
         <h3>{Title}</h3>
+        {isFavorite ? (
+          <button onClick={onRemoveFavorite}>Remove from Favorites</button>
+        ) : (
+          <button onClick={onAddFavorite}>Add to Favorites</button>
+        )}
       </div>
     </div>
   );
