@@ -10,7 +10,10 @@ import MovieCard from "./components/MovieCard";
 import SearchIcon from "./assets/search.svg";
 import "./App.css";
 
-const API_URL = "https://www.omdbapi.com?apikey=b6003d8a";
+//const API_URL = "https://www.omdbapi.com?apikey=b6003d8a";
+const API_URL = `https://www.omdbapi.com?apikey=${
+  import.meta.env.VITE_OMDB_API_KEY
+}`;
 
 const App = () => {
   const [searchTerm, setSearchTerm] = useState(""); //state for the search input
