@@ -9,6 +9,8 @@ import { addFavorite, removeFavorite } from "./redux/favoritesSlice";
 import MovieCard from "./components/MovieCard";
 import SearchIcon from "./assets/search.svg";
 import "./App.css";
+import { Helmet } from "react-helmet-async"; //  Meta tags
+import ReactGA from "react-ga4"; //  GA4 event tracking
 
 //const API_URL = "https://www.omdbapi.com?apikey=b6003d8a";
 const API_URL = `https://www.omdbapi.com?apikey=${
@@ -37,14 +39,41 @@ const App = () => {
   //functions for handeling favorites
   const handleAddFavorite = (movie) => {
     dispatch(addFavorite(movie));
+
+    // Track 'add to favorites' event in GA4
+    ReactGA.event({
+      category: "Favorites",
+      action: "Add to Favorites",
+      label: movie.Title,
+      value: movie.imdbID,
+    });
   };
 
   const handleRemoveFavorite = (imdbID) => {
     dispatch(removeFavorite(imdbID));
+    //  Track 'remove from favorites' event in GA4
+    ReactGA.event({
+      category: "Favorites",
+      action: "Remove from Favorites",
+      label: imdbID,
+    });
   };
 
   return (
     <div className="app">
+      {/* Step 4: Meta tags using Helmet */}
+      <Helmet>
+        <title>Movie Library - Search for Your Favorite Movies</title>
+        <meta
+          name="description"
+          content="Search for movies, add to your favorites list, and discover the latest films!"
+        />
+        <meta
+          name="keywords"
+          content="movies, favorite movies, movie search, OMDb API"
+        />
+      </Helmet>
+
       <h1>MovieLibrary</h1>
 
       <div className="search">
