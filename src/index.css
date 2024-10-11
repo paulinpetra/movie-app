@@ -66,25 +66,3 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
-
-/* NavigationMenu.css */
-.navigation-menu ul {
-  list-style: none;
-  display: flex;
-  gap: 20px;
-  padding: 0;
-}
-
-.navigation-menu li {
-  display: inline;
-}
-
-.navigation-menu a {
-  text-decoration: none;
-  color: #333;
-  font-weight: bold;
-}
-
-.navigation-menu a:hover {
-  color: #007bff;
-}
