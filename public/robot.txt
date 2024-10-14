@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap:https://movie-app-bay-seven.vercel.app/sitemap.xml
