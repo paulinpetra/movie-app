@@ -1,16 +1,16 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { Provider } from "react-redux"; // Import Provider from react-redux
-import { store } from "./redux/store"; // Import your Redux store
-import { BrowserRouter, Routes, Route } from "react-router-dom"; // Import BrowserRouter
+import { Provider } from "react-redux";
+import { store } from "./redux/store";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NavigationMenu from "./components/NavigationMenu";
 import FavoritesList from "./components/FavoritesList.jsx";
 
 import App from "./App.jsx";
 import "./index.css";
 
-import TagManager from "react-gtm-module"; // Google Tag Manager
-import ReactGA from "react-ga4"; // Google Analytics
+import TagManager from "react-gtm-module";
+import ReactGA from "react-ga4";
 import { HelmetProvider } from "react-helmet-async"; // For managing meta tags
 
 // Get GTM and GA IDs from environment variables
